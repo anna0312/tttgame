@@ -12,3 +12,7 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+$('#nameapi').on('click', function (event) {
+  event.preventDefault()
+  console.log(config.apiOrigin)
+})
