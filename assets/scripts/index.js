@@ -2,6 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const authEvents = require('./auth/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -12,7 +13,8 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-$('#nameapi').on('click', function (event) {
-  event.preventDefault()
-  console.log(config.apiOrigin)
+$(() => {
+  authEvents.addHandlers()
+  // gameEvents.addHandlers
+  // statsEvents.addHandlers
 })
