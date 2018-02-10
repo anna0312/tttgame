@@ -1,4 +1,4 @@
-# EMAIL="anna@anna.com" PASSWORD="mypwd" sh curlscripts/create_user.sh
+# EMAIL="lucy@anna.com" PASSWORD="testing" sh curlscripts/login_user.sh
 curl "http://tic-tac-toe.wdibos.com/sign-in" \
   --include \
   --request POST \

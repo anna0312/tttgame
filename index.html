@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Tic Tac Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -14,47 +14,53 @@
 </head>
 
 <body class="container-fluid">
+<div id="authResponse">&nbsp;</div>
+<button id="create-game">New game</button>
+<form id="update-game">
+  <input type="text" id="game[index]" placeholder="index">
+  <input type="text" id="game[value]" placeholder="value">
+  <input type="text" id="game[over]" placeholder="false">
+  <input type="submit" value="I played my move!">
+</form>
 
+<div>&nbsp;</div>
+  <a id="sign-up-button" class="btn btn-primary" data-toggle="collapse" href="#sign-up-form" role="button" aria-expanded="false" aria-controls="sign-up-form">
+      Sign Up
+    </a>
+  <a id="sign-in-buttom" class="btn btn-primary" data-toggle="collapse" href="#sign-in-form" role="button" aria-expanded="false" aria-controls="sign-in-form">
+      Log In
+      </a>
+  <a id="change-password-button" class="btn btn-primary" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
+          Change Password
+        </a>
 
+  <button class="btn btn-primary" id="sign-out-button">Log Out</button>
 
-  <div id="sign-up-form">
+  <div id="sign-up-form" class="panel">
     <form id="sign-up" class="border">
-      <fieldset>
-        <legend>Sign up!</legend>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-        <input type="submit" value="Sign up!">
-      </fieldset>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+      <input type="submit" value="Sign up!">
     </form>
   </div>
 
-  <div id="sign-in-form">
+  <div id="sign-in-form" class="panel">
     <form id="sign-in" class="border">
-      <fieldset>
-        <legend>Sign in </legend>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="submit" value="Sign in!">
-      </fieldset>
+      <input type="text" name="credentials[email]" placeholder="Email" value="lucy@anna.com">
+      <input type="password" name="credentials[password]" placeholder="Password" value="testing">
+      <input type="submit" value="Sign in!">
     </form>
   </div>
 
-  <div id="change-password-form">
+  <div id="change-password-form" class="panel">
     <form id="change-password" class="border">
-      <fieldset>
-        <legend>Change password</legend>
-        <input type="password" name="passwords[old]" placeholder="Old Password">
-        <input type="password" name="passwords[new]" placeholder="New Password">
-        <input type="submit" value="Change password">
-      </fieldset>
+      <input type="password" name="passwords[old]" placeholder="Old Password">
+      <input type="password" name="passwords[new]" placeholder="New Password">
+      <input type="submit" value="Change password">
     </form>
   </div>
 
-
-  <div id="sign-out-button">
-    <input type="submit" id="logOut" value="Log out">
-  </div>
 
 
 </body>

@@ -52,6 +52,11 @@ const addHandlers = () => {
   $('#logOut').on('click', onLogout)
 }
 
+const pageLoadEvents = () => {
+  ui.updateAuthLayout()
+}
+
 module.exports = {
-  addHandlers: addHandlers
+  addHandlers: addHandlers,
+  pageLoadEvents: pageLoadEvents
 }
