@@ -14,16 +14,41 @@
 </head>
 
 <body class="container-fluid">
+<div id="nextUp"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="col-xs-4 selection-box" data-index="0" >safd</div>
+    <div class="col-xs-4 selection-box" data-index="1">asdf</div>
+    <div class="col-xs-4 selection-box" data-index="2">asdf</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 selection-box" data-index="3"></div>
+    <div class="col-xs-4 selection-box" data-index="4"></div>
+    <div class="col-xs-4 selection-box" data-index="5"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 selection-box" data-index="6"></div>
+    <div class="col-xs-4 selection-box" data-index="7"></div>
+    <div class="col-xs-4 selection-box" data-index="8"></div>
+  </div>
+</div>
+</div>
+</div>
+
 <div id="authResponse">&nbsp;</div>
 <button id="create-game">New game</button>
+<button id="retrieve-all-games">show games</button>
+<div id="games"></div>
 <form id="update-game">
-  <input type="text" id="game[index]" placeholder="index">
-  <input type="text" id="game[value]" placeholder="value">
-  <input type="text" id="game[over]" placeholder="false">
+  <input type="text" name="game[cell][index]" id="index" >
+  <input type="text" name="game[cell][value]" id="value" value="x" >
+  <input type="text" name="game[over]" placeholder="false" value="false">
   <input type="submit" value="I played my move!">
 </form>
 
-<div>&nbsp;</div>
+<div style="display: none;">&nbsp;
   <a id="sign-up-button" class="btn btn-primary" data-toggle="collapse" href="#sign-up-form" role="button" aria-expanded="false" aria-controls="sign-up-form">
       Sign Up
     </a>
@@ -33,10 +58,10 @@
   <a id="change-password-button" class="btn btn-primary" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
           Change Password
         </a>
-
+</div>
   <button class="btn btn-primary" id="sign-out-button">Log Out</button>
 
-  <div id="sign-up-form" class="panel">
+  <div id="sign-up-form" class="panel" style="display: none;">
     <form id="sign-up" class="border">
       <input type="text" name="credentials[email]" placeholder="Email">
       <input type="password" name="credentials[password]" placeholder="Password">
@@ -53,7 +78,7 @@
     </form>
   </div>
 
-  <div id="change-password-form" class="panel">
+  <div id="change-password-form" class="panel" style="display: none;">
     <form id="change-password" class="border">
       <input type="password" name="passwords[old]" placeholder="Old Password">
       <input type="password" name="passwords[new]" placeholder="New Password">

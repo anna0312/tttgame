@@ -1,2 +1,12 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.gamebox {
+
+}
+
+.selection-box {
+  border: 1px solid #f3f3f3;
+  height: 50px;
+  max-width: 50px;
+}

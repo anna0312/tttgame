@@ -37,8 +37,32 @@ const endGame = function (data) {
   })
 }
 
+const retrieveGame = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const retrieveAllGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createGame: createGame,
   updateGame: updateGame,
-  endGame: endGame
+  endGame: endGame,
+  retrieveGame: retrieveGame,
+  retrieveAllGames: retrieveAllGames
 }
