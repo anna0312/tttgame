@@ -1,4 +1,4 @@
-# ID="2115" TOKEN="BAhJIiVhZThjYjhiYmQyNGFmNzBkYmM3NzVjNTAzMzUyN2FlZQY6BkVG--da948201b13381f0c1c41349dcc646c242359c26" sh curlscripts/logout_user.sh
+# ID="2213" TOKEN="BAhJIiUyZWMzNmJiODk0ZDE5NDhiNjM3OTA2MGVjM2FiMWYzYwY6BkVG--d06ecbc0677dd01974d262d1127f625dac410b69" sh curlscripts/logout_user.sh
 curl "http://tic-tac-toe.wdibos.com/sign-out/${ID}" \
   --include \
   --request DELETE \

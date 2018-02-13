@@ -2,11 +2,28 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 .gamebox {
-
+  margin: auto;
 }
 
 .selection-box {
   border: 1px solid #f3f3f3;
   height: 50px;
-  max-width: 50px;
+}
+
+.o-selected {
+  background-color: #ff0000;
+}
+
+
+.x-selected {
+  background-color: #0000ff;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.centered-content {
+  margin: auto;
+  text-align: center;
 }

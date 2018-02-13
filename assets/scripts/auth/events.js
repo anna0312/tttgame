@@ -49,7 +49,7 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#logOut').on('click', onLogout)
+  $('#sign-out-button').on('click', onLogout)
 }
 
 const pageLoadEvents = () => {

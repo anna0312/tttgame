@@ -14,80 +14,125 @@
 </head>
 
 <body class="container-fluid">
-<div id="nextUp"></div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-  <div class="row">
-    <div class="col-xs-4 selection-box" data-index="0" >safd</div>
-    <div class="col-xs-4 selection-box" data-index="1">asdf</div>
-    <div class="col-xs-4 selection-box" data-index="2">asdf</div>
+  <div class="container center-block">
+  <div id="nextUp"></div>
+  <div id="addResponse"></div>
+  <div id="gamebox"  style="margin: auto; text-align: center;">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div class="row">
+          <div class="col-xs-4 selection-box" data-index="0">safd</div>
+          <div class="col-xs-4 selection-box" data-index="1">asdf</div>
+          <div class="col-xs-4 selection-box" data-index="2">asdf</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 selection-box" data-index="3"></div>
+          <div class="col-xs-4 selection-box" data-index="4"></div>
+          <div class="col-xs-4 selection-box" data-index="5"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 selection-box" data-index="6"></div>
+          <div class="col-xs-4 selection-box" data-index="7"></div>
+          <div class="col-xs-4 selection-box" data-index="8"></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-xs-4 selection-box" data-index="3"></div>
-    <div class="col-xs-4 selection-box" data-index="4"></div>
-    <div class="col-xs-4 selection-box" data-index="5"></div>
-  </div>
-  <div class="row">
-    <div class="col-xs-4 selection-box" data-index="6"></div>
-    <div class="col-xs-4 selection-box" data-index="7"></div>
-    <div class="col-xs-4 selection-box" data-index="8"></div>
-  </div>
-</div>
-</div>
-</div>
 
-<div id="authResponse">&nbsp;</div>
-<button id="create-game">New game</button>
-<button id="retrieve-all-games">show games</button>
-<div id="games"></div>
+  <div id="authResponse">&nbsp;</div>
+<div id="game-options">
+  <button id="create-game">New game</button>
+  <button id="retrieve-all-games">show games</button>
+</div>
+  <div id="pastgames"></div>
+
+  <!--
 <form id="update-game">
   <input type="text" name="game[cell][index]" id="index" >
   <input type="text" name="game[cell][value]" id="value" value="x" >
   <input type="text" name="game[over]" placeholder="false" value="false">
   <input type="submit" value="I played my move!">
 </form>
+-->
 
-<div style="display: none;">&nbsp;
-  <a id="sign-up-button" class="btn btn-primary" data-toggle="collapse" href="#sign-up-form" role="button" aria-expanded="false" aria-controls="sign-up-form">
-      Sign Up
-    </a>
-  <a id="sign-in-buttom" class="btn btn-primary" data-toggle="collapse" href="#sign-in-form" role="button" aria-expanded="false" aria-controls="sign-in-form">
-      Log In
-      </a>
-  <a id="change-password-button" class="btn btn-primary" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
+  <div id="display-not-auth" class="centered-content">
+      <button id="sign-up-buttom"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signupModal">
+        New User? Create an account!
+      </button>
+      <button id="sign-in-buttom"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">
+        You back again? Log in!
+      </button>
+  </div>
+
+
+  <div id="display-authed">
+    <a id="change-password-button" class="btn btn-primary" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
           Change Password
         </a>
-</div>
-  <button class="btn btn-primary" id="sign-out-button">Log Out</button>
+    <button class="btn btn-primary" id="sign-out-button">Log Out</button>
+    <div id="change-password-form" class="panel collapse">
+      <form id="change-password" class="border">
+        <input type="password" name="passwords[old]" placeholder="Old Password">
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input type="submit" value="Change password">
+      </form>
+    </div>
 
-  <div id="sign-up-form" class="panel" style="display: none;">
-    <form id="sign-up" class="border">
-      <input type="text" name="credentials[email]" placeholder="Email">
-      <input type="password" name="credentials[password]" placeholder="Password">
-      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-      <input type="submit" value="Sign up!">
-    </form>
-  </div>
-
-  <div id="sign-in-form" class="panel">
-    <form id="sign-in" class="border">
-      <input type="text" name="credentials[email]" placeholder="Email" value="lucy@anna.com">
-      <input type="password" name="credentials[password]" placeholder="Password" value="testing">
-      <input type="submit" value="Sign in!">
-    </form>
-  </div>
-
-  <div id="change-password-form" class="panel" style="display: none;">
-    <form id="change-password" class="border">
-      <input type="password" name="passwords[old]" placeholder="Old Password">
-      <input type="password" name="passwords[new]" placeholder="New Password">
-      <input type="submit" value="Change password">
-    </form>
   </div>
 
 
+  <form id="update-game">
+    <input type="hidden" name="game[cell][index]" id="index" >
+    <input type="hidden" name="game[cell][value]" id="value" value="x" >
+    <input type="hidden" name="game[over]" placeholder="false" value="false">
 
+  </form>
+
+
+
+
+
+    <!-- signup modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="signupModalLabel">You're about to have so much fun!</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up" class="border">
+              <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+              <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm password">
+              <input type="submit" value="Create account" class="btn btn-default">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <!-- login modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="loginModalLabel">Let's play again...</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in" class="border">
+            <input type="text" class="form-control" name="credentials[email]" placeholder="Email" value="lucy@anna.com">
+            <input type="password" class="form-control"  name="credentials[password]" placeholder="Password" value="testing">
+            <input type="submit" value="Log in" class="btn btn-default">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
 </body>
 
 </html>

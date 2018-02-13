@@ -19,6 +19,7 @@ $(() => {
   authEvents.addHandlers()
   authEvents.pageLoadEvents()
   gameEvents.addHandlers()
+  gameEvents.pageLoadEvents()
   // gameEvents.addHandlers
   // statsEvents.addHandlers
 })

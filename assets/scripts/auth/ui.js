@@ -38,9 +38,11 @@ const changePasswordFailure = function (error) {
   console.error(error)
 }
 
-const signOutSuccess = function () {
+const signOutSuccess = function (data) {
   $('#message').text('Logged out successfully')
   $('#message').css('background-color', '#bbffbb')
+  store.user = data
+  console.log(store)
   updateAuthLayout()
 }
 
@@ -51,17 +53,24 @@ const signOutFailure = function (error) {
 }
 
 const updateAuthLayout = function () {
+  // console.log(store.user)
   // if a token exists, means a user is logged in. present accordingly
   if (store.user !== undefined) { // if the user is logged in...
-    $('#sign-up-button').addClass('invisible')
-    $('#sign-in-button').addClass('invisible')
-    $('#change-password-button').addClass('visible')
-    $('#sign-out-button').addClass('visible')
+    $('#display-not-auth').addClass('hidden')
+    $('#display-not-auth').removeClass('show')
+    $('#display-authed').addClass('show')
+    $('#display-authed').removeClass('hidden')
+    $('#game-options').addClass('show')
+    $('#game-options').removeClass('hidden')
+    // console.log('logged in')
   } else {
-    $('#sign-up-button').addClass('visible')
-    $('#sign-in-button').addClass('visible')
-    $('#change-password-button').addClass('invisible')
-    $('#sign-out-button').addClass('invisible')
+    $('#display-not-auth').addClass('show')
+    $('#display-not-auth').removeClass('hidden')
+    $('#display-authed').addClass('hidden')
+    $('#display-authed').removeClass('show')
+    $('#game-options').addClass('hidden')
+    $('#game-options').removeClass('show')
+    // console.log('not logged in')
   }
 }
 
