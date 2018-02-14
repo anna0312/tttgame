@@ -7,7 +7,6 @@ const signUpSuccess = function (data) {
   helpers.displayMessage('title', 'You\'re one of us now')
   helpers.displayMessage('subtitle', 'Now, drink the Kool-Aid and log in to make it official')
   updateAuthLayout()
-  $('#collapseOne').addClass('in')
   $('#collapseTwo').removeClass('in')
 }
 

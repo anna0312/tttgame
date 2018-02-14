@@ -58,13 +58,13 @@
       <button id="create-game" class="btn btn-warning">New game</button>
 
       <button id="retrieve-all-games" class="btn btn-warning" data-toggle="collapse" href="#pastgames" role="button" aria-expanded="false" aria-controls="pastgames">Show games</button>
+      <div id="pastgames" class="collapse">
+        <p>Games played: <span id="games-played" class="stats"></span></p>
+        <p>Games won: <span id="games-won" class="stats"></span></p>
+        <p id="stats-comments"></p>
+      </div>
+    </div>
 
-    </div>
-    <div id="pastgames" class="collapse">
-      <p>Games played: <span id="games-played" class="stats"></span></p>
-      <p>Games won: <span id="games-won" class="stats"></span></p>
-      <p id="stats-comments"></p>
-    </div>
 
 
     <div id="display-authed" class="centered-content">
@@ -111,8 +111,8 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
             <form id="sign-in" class="border">
-              <input type="text" class="form-control" name="credentials[email]" placeholder="Email" value="lucy@anna.com">
-              <input type="password" class="form-control" name="credentials[password]" placeholder="Password" value="testing">
+              <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
               <input type="submit" value="Log in" class="btn btn-warning">
             </form>
           </div>
