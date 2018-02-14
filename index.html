@@ -23,49 +23,64 @@
     <div id="nextUp" class="centered-content"></div>
 
     <div id="gamebox" style="margin: auto; text-align: center;">
-      <div class="row" id="gamebox-inner">
+      <div class="row" id="gamebox-inner" >
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
           <div class="row">
-            <div class="col-xs-4 selection-box" data-index="0"></div>
-            <div class="col-xs-4 selection-box" data-index="1"></div>
-            <div class="col-xs-4 selection-box" data-index="2"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="0"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="1"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="2"></div>
           </div>
           <div class="row">
-            <div class="col-xs-4 selection-box" data-index="3"></div>
-            <div class="col-xs-4 selection-box" data-index="4"></div>
-            <div class="col-xs-4 selection-box" data-index="5"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="3"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="4"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="5"></div>
           </div>
           <div class="row">
-            <div class="col-xs-4 selection-box" data-index="6"></div>
-            <div class="col-xs-4 selection-box" data-index="7"></div>
-            <div class="col-xs-4 selection-box" data-index="8"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="6"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="7"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="8"></div>
           </div>
-
+          <div class="row">
+            <div class="col-xs-12 theatre">
+              <img src="public/mst3k.png" id="mst" class="audience">
+            </div>
+          </div>
       </div>
         </div>
 
-        <img src="assets/images/mst3k.png" id="mst" class="audience">
+
 
     </div>
 
     <div id="authResponse">&nbsp;</div>
     <div id="game-options" class="centered-content">
-      <button id="create-game" class="btn btn-primary">New game</button>
-      <button id="retrieve-all-games" class="btn btn-primary">show games</button>
+      <p class="more-options">You have options, you know: </p>
+      <button id="create-game" class="btn btn-warning">New game</button>
+
+      <button id="retrieve-all-games" class="btn btn-warning" data-toggle="collapse" href="#pastgames" role="button" aria-expanded="false" aria-controls="pastgames">Show games</button>
+
     </div>
-    <div id="pastgames"></div>
+    <div id="pastgames" class="collapse">
+      <p>Games played: <span id="games-played" class="stats"></span></p>
+      <p>Games won: <span id="games-won" class="stats"></span></p>
+      <p id="stats-comments"></p>
+    </div>
 
 
     <div id="display-authed" class="centered-content">
       <a id="change-password-button" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
           Change Password
         </a>
-      <a href="#" id="sign-out-button">Log Out</button>
-      <div id="change-password-form" class="panel collapse">
+      &nbsp;  // &nbsp;
+      <a href="#" id="sign-out-button">Log Out</a>
+      <div id="change-password-form" class="panel collapse" f>
         <form id="change-password" class="border">
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change password">
+          <div class="form-group">
+          <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
+        </div><div class="form-group">
+          <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
+        </div>
+          <input type="submit" value="Change password" class="btn btn-warning">
         </form>
       </div>
 
@@ -98,7 +113,7 @@
             <form id="sign-in" class="border">
               <input type="text" class="form-control" name="credentials[email]" placeholder="Email" value="lucy@anna.com">
               <input type="password" class="form-control" name="credentials[password]" placeholder="Password" value="testing">
-              <input type="submit" value="Log in" class="btn btn100">
+              <input type="submit" value="Log in" class="btn btn-warning">
             </form>
           </div>
         </div>
@@ -117,7 +132,7 @@
               <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
               <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
               <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm password">
-              <input type="submit" value="Create account" class="btn btn100">
+              <input type="submit" value="Create account" class="btn btn-warning">
             </form>
           </div>
         </div>

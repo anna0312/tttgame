@@ -6,7 +6,11 @@ const helpers = require('../templates/helpers/helpers.js')
 const createGameSuccess = function (data) {
   // console.log(data)
   store.game = data.game
-  store.game.nameofgame = 'blank'
+  // reset gameboard
+  $('.selection-box').removeClass('o-selected')
+  $('.selection-box').removeClass('x-selected')
+  $('.selection-box').text('')
+
   updateGamesLayout()
   helpers.displayMessage('title', 'Come at me bro!', 'big-red')
   helpers.displayMessage('subtitle', 'Pick a square!', 'big-green animated bounce')
@@ -21,12 +25,18 @@ const createGameFailure = function (error) {
 }
 
 const updateGameSuccess = function (data, player, playerStatus) {
-  console.log('store on success', store)
+//  console.log('store on success', store)
+
+
   if (playerStatus === 'winner') {
-    helpers.displayMessage('title', player + ' wins!!!!', 'big-red animated zoomIn')
+    helpers.displayMessage('title', 'Oh snap! Player ' + player + ' won!!!!', 'big-red animated zoomIn')
     helpers.displayMessage('subtitle', 'OK, player <span class="player">' + player + '</span> you don\'t totally suck', 'big-green')
     $('#over').val('true')
-    $('#mst').addClass('animated wobble')
+    $('#mst').addClass('animated tada')
+  } else if (gamelogic.checkDraw(store.game)) {
+    helpers.displayMessage('title', 'DOH! You both suck.', 'big-red animated zoomIn')
+    helpers.displayMessage('subtitle', 'Game Over. Lets try that again. And maybe suck slightly less next time.', 'big-green')
+    $('#over').val('true')
   } else {
     // set some values
     const nextPlayer = player === 'x' ? 'o' : 'x'
@@ -59,22 +69,15 @@ const retrieveGameFailure = function (error) {
 }
 
 const retrieveAllGamesSuccess = function (data) {
-  console.log('all games: ', data)
-  $('#games').text('All games' + data)
+  // console.log('all games: ', data)
+  // $('#games').text('All games' + data)
   //  console.log('finished', gamelogic.finishedGames(data))
-  console.log('won', gamelogic.gamesWonBy(data, 'x'))
-
-  // gamelogic.finishedGames.forEach(function (game) {
-//     $('#pastgames').append('Unfinished: ' + game.id)
-//   })
-
-//  console.log('won by x', gamelogic.gamesWonBy(data, 'x'))
-//  data.games.forEach(function (game) {
-//    $('#pastgames').append(game.id + '<br />')
-//  })
-  // data.games.forEach()
-  // console.log(data)
-  // console.log(store.game.nameofgame)
+  // console.log('won', gamelogic.gamesWonBy(data, 'x'))
+  const played = gamelogic.gamesPlayed(data)
+  const won = gamelogic.gamesWonBy(data, 'x')
+  $('#games-played').text(played)
+  $('#games-won').text(won)
+  $('#stats-comments').text(gamelogic.gameStatsComment(played, won))
 }
 
 const retrieveAllGamesFailure = function (error) {

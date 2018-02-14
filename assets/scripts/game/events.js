@@ -15,7 +15,6 @@ const onUpdateGame = (event) => {
   event.preventDefault()
   if (store.game.over === true) {
     console.log('game over no more moves')
-
   } else {
     const player = $('#value').val()
     const data = {
@@ -51,10 +50,6 @@ const onUpdateGame = (event) => {
   }
 }
 
-const onEndGame = () => {
-
-}
-
 const onRetrieveGame = (id) => {
   event.preventDefault()
   api.retrieveGame()
@@ -74,7 +69,6 @@ const addHandlers = () => {
   // $('#update-game').on('submit', onUpdateGame)
   $('#retrieve-game').on('submit', onRetrieveGame)
   $('#retrieve-all-games').on('click', onRetrieveAllGames)
-  $('#end-game').on('submit', onEndGame)
   $('.selection-box').on('click', onUpdateGame)
 }
 
