@@ -1,5 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Rock+Salt);
 
 body {
   background-color: #000;
@@ -11,8 +13,8 @@ body {
   padding: 0;
 }
 p {
-  font-family: 'Rock Salt', cursive;
   color: #ececec;
+  font-family: 'Rock Salt', cursive;
   font-size: 15px;
 }
 
@@ -21,12 +23,13 @@ a {
 }
 
 h1 {
+  color: #fff;
   font-family: 'Cabin Sketch', cursive;
   font-size: 45px;
   margin: 15px auto 5px auto;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+
 }
 
 h2 {

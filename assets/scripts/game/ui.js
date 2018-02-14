@@ -27,7 +27,6 @@ const createGameFailure = function (error) {
 const updateGameSuccess = function (data, player, playerStatus) {
 //  console.log('store on success', store)
 
-
   if (playerStatus === 'winner') {
     helpers.displayMessage('title', 'Oh snap! Player ' + player + ' won!!!!', 'big-red animated zoomIn')
     helpers.displayMessage('subtitle', 'OK, player <span class="player">' + player + '</span> you don\'t totally suck', 'big-green')
