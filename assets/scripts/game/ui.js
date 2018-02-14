@@ -1,13 +1,16 @@
 'use strict'
 const store = require('../store')
 const gamelogic = require('./gamelogic')
+const helpers = require('../templates/helpers/helpers.js')
 
 const createGameSuccess = function (data) {
-  $('#authResponse').text('Game created. ID: ' + data.game.id)
-  $('#authResponse').css('background-color', 'green')
   // console.log(data)
   store.game = data.game
   store.game.nameofgame = 'blank'
+  updateGamesLayout()
+  helpers.displayMessage('title', 'Come at me bro!', 'big-red')
+  helpers.displayMessage('subtitle', 'Pick a square!', 'big-green animated bounce')
+
   // console.log(store.game.nameofgame)
 }
 
@@ -18,20 +21,20 @@ const createGameFailure = function (error) {
 }
 
 const updateGameSuccess = function (data, player, playerStatus) {
-  $('#authResponse').text('Game updated. ID: ' + data.game.id)
-  $('#authResponse').css('background-color', 'light green')
   console.log('store on success', store)
   if (playerStatus === 'winner') {
-    $('#nextUp').text('woooot!!!' + player + 'wins!')
+    helpers.displayMessage('title', player + ' wins!!!!', 'big-red animated zoomIn')
+    helpers.displayMessage('subtitle', 'OK, player <span class="player">' + player + '</span> you don\'t totally suck', 'big-green')
     $('#over').val('true')
+    $('#mst').addClass('animated wobble')
   } else {
     // set some values
     const nextPlayer = player === 'x' ? 'o' : 'x'
     $('#value').val(nextPlayer)
 
     // set some responses
-    $('#addResponse').text('doh!' + player + 'sucks!')
-    $('#nextUp').text('Player ' + nextPlayer + ', your turn!')
+    helpers.displayMessage('title', 'Meh, we\'re not impressed... yet.', 'big-green animated bounce')
+    helpers.displayMessage('subtitle', 'Player ' + nextPlayer + ', your turn!', 'big-green animated bounce')
   }
 }
 
@@ -58,8 +61,8 @@ const retrieveGameFailure = function (error) {
 const retrieveAllGamesSuccess = function (data) {
   console.log('all games: ', data)
   $('#games').text('All games' + data)
-//  console.log('finished', gamelogic.finishedGames(data))
-//  console.log('won', gamelogic.gamesWonBy(data, 'x'))
+  //  console.log('finished', gamelogic.finishedGames(data))
+  console.log('won', gamelogic.gamesWonBy(data, 'x'))
 
   // gamelogic.finishedGames.forEach(function (game) {
 //     $('#pastgames').append('Unfinished: ' + game.id)
@@ -81,18 +84,21 @@ const retrieveAllGamesFailure = function (error) {
 }
 
 const updateGamesLayout = function () {
-  console.log(store.game)
+  // console.log('test', store.game)
   // if a token exists, means a user is logged in. present accordingly
   if (store.game !== undefined) { // if the user is logged in...
     $('#gamebox').addClass('show')
+    $('#gamebox').removeClass('hidden')
     $('#create-game').addClass('button-smaller')
     $('#display-authed').addClass('button-smaller')
   } else {
     $('#gamebox').addClass('hidden')
+    $('#gamebox').removeClass('show')
     $('#create-game').addClass('button-larger')
     $('#display-authed').addClass('button-larger')
   }
 }
+
 module.exports = {
   createGameSuccess,
   createGameFailure,

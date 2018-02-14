@@ -15,6 +15,7 @@ const onUpdateGame = (event) => {
   event.preventDefault()
   if (store.game.over === true) {
     console.log('game over no more moves')
+
   } else {
     const player = $('#value').val()
     const data = {

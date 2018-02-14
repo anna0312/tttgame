@@ -8,17 +8,23 @@ const checkWin = function (player) {
   return winning.some((element) => element.every((item) => cells[item] === player))
 }
 
-const checkPreviousWin = function (data, player) {
-  const cells = data.game.cells
-  console.log('game', data.games)
-  console.log(player, 'did', winning.some((element) => element.every((item) => cells[item] === player)))
+const checkPastWins = function (player, data = null) {
+  let cells = data.cells
+  if (data === null) {
+    cells = store.game.cells
+  }
+  // console.log('newcells', cells)
+  return winning.some((element) => element.every((item) => cells[item] === player))
 }
+
 // console.log('final', checkWin)
 
 const fillSquare = (element, index, array) => {
 //  console.log(index + ' ' + element)
   // $('#' + value).addClass(value + '-selected')
+
   $('.selection-box[data-index="' + index + '"]').addClass(element + '-selected')
+  $('.selection-box[data-index="' + index + '"]').text(element)
 }
 
 const readSquares = () => {
@@ -30,7 +36,8 @@ const finishedGames = (data) => { return data.games.filter(game => game.over ===
 
 const gamesWonBy = (data, player) => {
 //  finishedGames(data).filter(game => checkPreviousWin(finishedGames.game, player) === true)
-  checkPreviousWin(data, player)
+  // checkPreviousWin(data, player)
+  return data.games.filter(data => checkPastWins(player, data)).length
 }
 
 module.exports = {

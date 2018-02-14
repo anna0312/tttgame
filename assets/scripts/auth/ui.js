@@ -1,35 +1,33 @@
 'use strict'
 const store = require('../store')
+const helpers = require('../templates/helpers/helpers.js')
 
 const signUpSuccess = function (data) {
-  $('#authResponse').text('Signed up successfully')
-  $('#authResponse').css('background-color', 'green')
-  console.log(data)
+  helpers.displayMessage('title', 'Nicely done!')
+  helpers.displayMessage('subtitle', 'You\'re one of us now', 'big-green animated slideInDown')
   updateAuthLayout()
 }
 
 const signUpFailure = function (error) {
-  $('#authResponse').text('Error on signing up')
-  $('#authResponse').css('background-color', 'red')
+//  $('#authResponse').text('Error on signing up')
+//  $('#authResponse').css('background-color', 'red')
   console.error(error)
 }
 
 const signInSuccess = function (data) {
-  $('#authResponse').text('Signed in successfully as ID: ' + data.user.id)
-  $('#authResponse').css('background-color', '#bbffbb')
+  helpers.displayMessage('title', 'You came back for more? Really?!?', 'big-red')
   store.user = data.user
   updateAuthLayout()
 }
 
 const signInFailure = function (error) {
-  $('#authResponse').text('Error on signing in')
-  $('#authResponse').css('background-color', 'pink')
+  helpers.displayMessage('error-message', 'Woops! There was a problem. Try logging in again')
   console.error(error)
 }
 
 const changePasswordSuccess = function () {
   $('#authResponse').text('Changed password successfully')
-  $('#authResponse').css('background-color', '#bbffbb')
+  $('#authResponse').addClass('response-happy ')
 }
 
 const changePasswordFailure = function (error) {
