@@ -3,7 +3,10 @@
 
 ## Technologies used
 HTML, CSS, Javascript, JQuery, and the various configuration packages and
-linters available to me through the template
+linters available to me through the template.
+
+I also imported fonts from google fonts, and an animation library:
+https://daneden.github.io/animate.css/
 
 ## Planning
 Time management and project organization is frequently an issue for me, and this
@@ -35,6 +38,9 @@ scars of my running out of time (see: poor time management.)
 I am also not very confident in the organization of my javascript. I tried to
 separate it all out into logical concerns but fear I may have mis-organized some
 of it. It works, so that's good. But could have been done more elegantly
+
+Also, my linter gave me tons of errors on vendor-provided stuff. It doesn't
+like my boostrap stuff, my animations stuff, and a couple of other things.
 
 ## What I'm proud of
 I focused a lot on trying to find elegant (read: as few lines as possible)
