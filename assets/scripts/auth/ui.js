@@ -52,12 +52,14 @@ const changePasswordSuccess = function () {
   helpers.displayMessage('title', 'Done!')
   helpers.displayMessage('subtitle', 'Your secret is safe with us', 'big-green')
   $('#change-password-form').removeClass('in')
+  clearFields()
 }
 
 const changePasswordFailure = function (error) {
   helpers.displayMessage('title', 'Yikes! Problems.')
   helpers.displayMessage('subtitle', 'Don\t get your panties in a twist', 'big-green')
   console.error(error)
+  clearFields()
 }
 
 const signOutSuccess = function (data) {
