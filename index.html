@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <div class="container center-block">
+    <h1 id="title">Lets play tic-tac-toe</h1>
+    <h2 id="subtitle"></h2>
+    <div id="message" class="centered-content"></div>
+    <div id="nextUp" class="centered-content"></div>
+
+    <div id="gamebox" style="margin: auto; text-align: center;">
+      <div class="row" id="gamebox-inner" >
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+          <div class="row">
+            <div class="col-xs-4 selection-box theatre" data-index="0"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="1"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="2"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 selection-box theatre" data-index="3"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="4"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="5"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 selection-box theatre" data-index="6"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="7"></div>
+            <div class="col-xs-4 selection-box theatre" data-index="8"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 theatre">
+              <img src="https://i.imgur.com/fNUZhl8.png" id="mst" class="audience">
+            </div>
+          </div>
+      </div>
+        </div>
+
+
+
+    </div>
+
+    <div id="authResponse">&nbsp;</div>
+    <div id="game-options" class="centered-content">
+      <p class="more-options">You have options, you know: </p>
+      <button id="create-game" class="btn btn-warning">New game</button>
+
+      <button id="retrieve-all-games" class="btn btn-warning" data-toggle="collapse" href="#pastgames" role="button" aria-expanded="false" aria-controls="pastgames">Show games</button>
+      <div id="pastgames" class="collapse">
+        <p>Games played: <span id="games-played" class="stats"></span></p>
+        <p>Games won: <span id="games-won" class="stats"></span></p>
+        <p id="stats-comments"></p>
+      </div>
+    </div>
+
+
+
+    <div id="display-authed" class="centered-content">
+      <a id="change-password-button" data-toggle="collapse" href="#change-password-form" role="button" aria-expanded="false" aria-controls="change-password-form">
+          Change Password
+        </a>
+      &nbsp;  // &nbsp;
+      <a href="#" id="sign-out-button">Log Out</a>
+      <div id="change-password-form" class="panel collapse" f>
+        <form id="change-password" class="border">
+          <div class="form-group">
+          <input class="form-control" type="password" id="changePwd1" name="passwords[old]" placeholder="Old Password" autocomplete="new-password">
+        </div><div class="form-group">
+          <input class="form-control" type="password" id="changePwd2" name="passwords[new]" placeholder="New Password" autocomplete="new-password">
+        </div>
+          <input type="submit" value="Change password" class="btn btn-warning">
+        </form>
+      </div>
+
+    </div>
+
+
+    <form id="update-game">
+      <input type="hidden" name="game[cell][index]" id="index">
+      <input type="hidden" name="game[cell][value]" id="value" value="x">
+      <input type="hidden" name="game[over]" placeholder="false" value="false">
+
+    </form>
+
+  </div>
+  <div  class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+
+  <div id="display-not-auth" class="centered-content">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+        <a id="sign-in-button"  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          You back again? Log in!
+        </a>
+      </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <form id="sign-in" class="border">
+              <input type="text" class="form-control" id="loginEmail" name="credentials[email]" placeholder="Email" autocomplete="new-password">
+              <input type="password" class="form-control" id="loginPwd" name="credentials[password]" placeholder="Password" autocomplete="new-password">
+              <input type="submit" value="Log in" class="btn btn-warning">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            New User? Create an account!
+        </a>
+      </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            <form id="sign-up" class="border">
+              <input type="text" class="form-control" id="signupEmail" name="credentials[email]" placeholder="Email" autocomplete="new-password">
+              <input type="password" class="form-control" id="signupPwd" name="credentials[password]" placeholder="Password" autocomplete="new-password">
+              <input type="password" class="form-control" id="signupConfPwd" name="credentials[password_confirmation]" placeholder="Confirm password" autocomplete="new-password">
+              <input type="submit" value="Create account" class="btn btn-warning">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
