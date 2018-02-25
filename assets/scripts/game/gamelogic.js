@@ -33,7 +33,6 @@ const checkDraw = (data) => {
 const fillSquare = (element, index, array) => {
   //  console.log(index + ' ' + element)
   // $('#' + value).addClass(value + '-selected')
-
   $('.selection-box[data-index="' + index + '"]').addClass(element + '-selected')
   $('.selection-box[data-index="' + index + '"]').text(element)
 }

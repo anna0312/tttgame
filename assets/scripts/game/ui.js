@@ -31,7 +31,7 @@ const updateGameSuccess = function (data, player, playerStatus) {
     helpers.displayMessage('title', 'Oh snap! Player ' + player + ' won!!!!', 'big-red animated zoomIn')
     helpers.displayMessage('subtitle', 'OK, player <span class="player">' + player + '</span> you don\'t totally suck', 'big-green')
     $('#over').val('true')
-    $('#mst').addClass('animated tada')
+    $('#mst').addClass('animated shake')
   } else if (gamelogic.checkDraw(store.game)) {
     helpers.displayMessage('title', 'DOH! You both suck.', 'big-red animated zoomIn')
     helpers.displayMessage('subtitle', 'Game Over. Lets try that again. And maybe suck slightly less next time.', 'big-green')
@@ -51,6 +51,10 @@ const updateGameFailure = function (error) {
   $('#authResponse').text('Error updating game')
   $('#authResponse').css('background-color', 'red')
   console.error(error)
+}
+
+const squareTaken = function (index) {
+  // $('.selection-box[data-index="' + index + '"]').addClass(' taken')
 }
 
 const retrieveGameSuccess = function (data) {
@@ -110,5 +114,6 @@ module.exports = {
   retrieveGameFailure,
   retrieveAllGamesSuccess,
   retrieveAllGamesFailure,
-  updateGamesLayout
+  updateGamesLayout,
+  squareTaken
 }

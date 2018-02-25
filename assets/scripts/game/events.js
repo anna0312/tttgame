@@ -13,8 +13,11 @@ const onCreateGame = (event) => {
 
 const onUpdateGame = (event) => {
   event.preventDefault()
-  if (store.game.over === true) {
-    console.log('game over no more moves')
+
+  if ($('.selection-box[data-index="' + $(event.target).data('index') + '"]').text() !== '') {
+    ui.squareTaken($(event.target).data('index'))
+  } else if (store.game.over === true) {
+    // console.log('game over no more moves')
   } else {
     const player = $('#value').val()
     const data = {
